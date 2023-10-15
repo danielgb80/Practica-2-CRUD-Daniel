@@ -37,6 +37,11 @@ function guardarUsuario() {
     if (indexEditar === null) {
         console.log("Agregar usuario");
         usuarios.push(usuario);
+        Swal.fire(
+            'Usuario Guardado',
+            '',
+            'success',
+          )
     } else {
         usuarios[indexEditar] = usuario;
         indexEditar = null;
@@ -65,18 +70,55 @@ function editarUsuario(index){
     inputProfesion.value = usuarioAEditar.profesion;
     inputEmail.value = usuarioAEditar.email;
     indexEditar = index;
+    
 }
+
 
 function eliminarUsuario(index){
     console.log("Entro eliminar usuario:" + index);
     usuarios.splice(index, 1);
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
     mostrarUsuarios();
-    alert("Usuario eliminado");
-}
-
-function mostrarUsuarios() {
-    if (usuarios.length === 0) {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+        title: '¿Estás seguro de eliminar el usuario?',
+        text: "El siguiente movimiento no se podrá revertir",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'No, cancela!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed)  {
+           
+            swalWithBootstrapButtons.fire
+            (
+                'Eliminado',
+                'Your file has been deleted.',
+                'success'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                        )
+                    }
+                })
+            }
+            
+            function mostrarUsuarios() {
+                if (usuarios.length === 0) {
         divUsuarios.innerHTML = `
         <div class="alert alert-primary" role="alert" id="alertSinUsuarios" align="center">
             No hay usuarios agregados
