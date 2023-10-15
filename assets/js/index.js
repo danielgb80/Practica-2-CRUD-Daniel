@@ -25,7 +25,7 @@ class Usuario {
 function guardarUsuario() {
     let nombre = inputNombre.value;
     let profesion = inputProfesion.value;
-    let email = inputEmail.value;s
+    let email = inputEmail.value;
 
     let usuario = new Usuario(
         nombre,
