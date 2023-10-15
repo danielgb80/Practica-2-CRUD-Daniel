@@ -1,6 +1,6 @@
 console.log("Entro index.js");
 
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+let usuarios = JSON.parse(localStorage.getItem("usuarios") ) || [];
 //input's
 const inputNombre = document.getElementById("inputNombre");
 const inputProfesion = document.getElementById("inputProfesion");
@@ -72,12 +72,13 @@ function eliminarUsuario(index){
     usuarios.splice(index, 1);
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
     mostrarUsuarios();
+    alert("Usuario eliminado");
 }
 
 function mostrarUsuarios() {
     if (usuarios.length === 0) {
         divUsuarios.innerHTML = `
-        <div class="alert alert-primary" role="alert" id="alertSinUsuarios">
+        <div class="alert alert-primary" role="alert" id="alertSinUsuarios" align="center">
             No hay usuarios agregados
         </div>`;
     } else {
