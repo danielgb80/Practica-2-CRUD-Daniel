@@ -1,0 +1,65 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+    .text-blue {
+    color: #007bff;
+}
+
+h1 {
+    text-align: left;
+    padding: 20px;
+}
+
+body{
+    
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,107,86,1) 0%, rgba(13,152,124,1) 15%, rgba(13,154,177,1) 100%);
+}
+header {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,107,86,1) 0%, rgba(13,152,124,1) 15%, rgba(13,154,177,1) 100%);
+    font-size: 20px;
+    font-family: 'ADLaM Display', cursive;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    margin: 0px;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0;
+    margin-right: 0px;
+
+}
+
+footer {
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,107,86,1) 0%, rgba(13,152,124,1) 15%, rgba(13,154,177,1) 100%);
+    font-size: 20px;
+    
+    font-family: 'ADLaM Display', cursive;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    padding: 5px;
+}
+img {
+        width: 120px;
+        height: 50px;
+      }
+  
+
+.derechos {
+    display: grid;
+    color: white;
+}
