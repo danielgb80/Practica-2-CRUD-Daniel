@@ -97,20 +97,21 @@ function eliminarUsuario(index){
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed)  {
-           
+            
             swalWithBootstrapButtons.fire
             (
                 'Eliminado',
-                'Your file has been deleted.',
+                'El usuario ha sido eliminado.',
                 'success'
                 )
             } else if (
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
+                
                 ) {
                     swalWithBootstrapButtons.fire(
-                        'Cancelled',
-                        'Your imaginary file is safe :)',
+                        'Cancelado',
+                        'El usuario ha sido salvado :)',
                         'error'
                         )
                     }
