@@ -75,10 +75,6 @@ function editarUsuario(index){
 
 
 function eliminarUsuario(index){
-    console.log("Entro eliminar usuario:" + index);
-    usuarios.splice(index, 1);
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    mostrarUsuarios();
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',
@@ -97,6 +93,10 @@ function eliminarUsuario(index){
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed)  {
+            console.log("Entro eliminar usuario:" + index);
+            usuarios.splice(index, 1);
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+            mostrarUsuarios();
             
             swalWithBootstrapButtons.fire
             (
@@ -129,17 +129,17 @@ function eliminarUsuario(index){
         usuarios.forEach((usuario, index) => {
             divUsuarios.innerHTML += `
             <div align="center">
-                <div class="card mb-3" style="width: 90%">
+                <div class="card mb-3" style="width: 50%">
                    <div class="row g-0">
-                      <div class="d-grid gap-2 col-12 mx-auto">
+                      <div class="d-grid gap-2 col-6 mx-auto">
                          <div class="card-body" >
                             <h5 class="card-title" align="center">${usuario.nombre}</h5>
                             <h6 class="card-subtitle mb-2 text-body-secondary" align="center">${usuario.profesion} <br> ${usuario.email}</h6>
                             <div class="row mb-2">
-                               <div class="d-grid gap-2 col-5 mx-auto">
+                               <div class="d-grid gap-2 col-6 mx-auto">
                                   <button class="btn btn-warning w-10 mt-2" type="button" id="editar-${index}" onclick="editarUsuario(${index})">Editar</button>
                                </div>
-                               <div class="d-grid gap-2 col-5 mx-auto">
+                               <div class="d-grid gap-2 col-6 mx-auto">
                                   <button class="btn btn-danger w-10 mt-2" type="button" id="eliminar-${index}" onclick="eliminarUsuario(${index})">Eliminar</button>
                                </div>
                             </div>
@@ -148,17 +148,11 @@ function eliminarUsuario(index){
                       </div>
                    </div>
                 </div>
-
+                <div>
                 <script> 
-                
-@media (max-width: 600px) {
-
-    .divUsuarios {
-    width: 300px;
-    height: 300px;
-    }
-    }
-                </script>
+                @media (max-width: 800px) {
+                    
+                <div class="card mb-3" style="width: 50%">
 
             `;
         });
